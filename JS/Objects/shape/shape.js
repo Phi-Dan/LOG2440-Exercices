@@ -4,8 +4,11 @@
     2. Implémenter la fonction describe() qui affiche la couleur et la forme d'une Shape
 */
 function Shape(type, color) {
-    this.getType = function () { return type; };
+    this.getType = function () { return this.type ? this.type : type; };
+    this.color = color;
 }
+
+Shape.prototype.describe = function () { return `${this.color} ${this.type}` ;}
 
 const circle = new Shape('circle', 'red');
 const ellipse = Object.create(circle);
@@ -19,7 +22,14 @@ console.log(ellipse.describe()); // valeur désirée : red ellipse
     ainsi que les propriétés width, height et la fonction getArea()
 */
 function RectangleFactory(obj, width, height) {
-    return {};
+    return { 
+        ...obj, 
+        width, 
+        height,
+        getArea() {
+            return this.width * this.height;
+        }
+    };
 }
 
 const rectangle = new Shape('square', 'blue');
@@ -32,7 +42,14 @@ console.log(square.getArea()); // 25
     Implémenter CircleMixin qui ajoute l'attribut radius et la fonction getArea() au paramètre obj
     Rappel : la surface d'un cercle = pi*r^2
 */
-function CircleMixin(obj, radius) { }
+function CircleMixin(obj, radius) { 
+    return Object.assign(obj, {
+        radius,
+        getArea: function () {
+            return Math.PI*Math.pow(this.radius,2);
+        }
+    })
+}
 
 CircleMixin(circle, 1);
 console.log(circle.getArea().toFixed(2)); // 3.14

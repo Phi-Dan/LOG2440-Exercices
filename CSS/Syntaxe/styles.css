@@ -11,17 +11,77 @@ form {
     flex-direction: column;
     max-width: 200px;
     padding: 10px;
+    border: 2px solid black;
 }
 
 input {
     box-sizing: border-box;
+    width: 100%;
+    margin: 5px 0px;
+}
+
+select {
+    width: 100%;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+div>input {
+    background-color: #ffffe0;
 }
 
 /* Sélecteurs multiples pour l'élément <input> */
+
+.rounded-border {
+    border-radius: 10px;
+}
+
+/* #login-submit {
+    background-color: darkgreen;
+    color: white;
+    font-size: large;
+} */
+
+#login-submit:hover {
+    font-size: larger;
+    background-color: lightgreen;
+}
+
+#logoff-reminder {
+    text-align: center;
+}
 
 /* Pour tester */
 .a_remplacer {
     background-color: blue;
 }
 
+/* input[type='submit'] {
+    background-color: yellow;
+} */
+
+form>input {
+    background-color: aliceblue;
+}
+
+div
+
 /* Exercice supplémentaire */
+
+li:after {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+li:nth-child(1)::after {
+    content: 'input[type=\'submit\']';
+}
+
+li:nth-child(2)::after {
+    content: 'form>input';
+}
+
+li:hover::marker {
+    content: '★';
+    font-size: 20px;
+}

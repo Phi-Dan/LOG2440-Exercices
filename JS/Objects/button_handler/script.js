@@ -8,7 +8,7 @@ const ButtonHandler = {
         display.textContent = `Valeur aléatoire : ${randomValue}`;
     },
     addHandler: function (element) {
-        element.addEventListener("click", this.showValue);
+        element.addEventListener("click", () => this.showValue());
     },
 };
 

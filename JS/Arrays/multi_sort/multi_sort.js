@@ -6,7 +6,9 @@ const books = [
     { id: 5, price: 10.50, available: false },
 ];
 
-const sorted = [];
+const sorted = books.toSorted((a,b) => {
+    return a.available - b.available || a.price - b.price;
+});
 
 console.log(sorted);
 /* Valeur attendue :

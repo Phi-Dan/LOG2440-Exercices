@@ -83,6 +83,48 @@ li a {
     text-decoration: none;
 }
 
+@media screen and (max-width:800px) {
+    #container {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top-bar"
+            "aside"
+            "main-content";
+    }
+
+    #page-nav {
+        grid-area: aside;
+        position: relative;
+    }
+
+    #page-nav,
+    #page-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-left: none;
+    }
+}
+
+
+@media all and (min-width:451px) and (max-width:800px) {
+    .notecard {
+        background-color: #15ec15;
+    }
+    
+}
+
+@media screen and (max-width:450px) {
+    #search-bar,
+    #page-nav {
+        display: none;
+    }
+
+    figure {
+        margin: 0;
+    }
+}
 
 @media print {
 
